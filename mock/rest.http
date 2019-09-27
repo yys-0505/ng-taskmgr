@@ -1,0 +1,39 @@
+GET http://localhost:3000/projects?members_like=1
+
+###
+
+GET http://localhost:3000/tasklists
+
+###
+
+POST http://localhost:3000/tasklists
+Content-Type: application/json
+
+{
+  "name": "list1",
+  "order": "1",
+  "projectId": "1"
+}
+
+###
+PUT http://localhost:3000/tasklists/upHsvW3
+Content-Type: application/json
+
+{
+  "name": "list3",
+  "order": "2",
+  "projectId": "1"
+}
+
+###
+PATCH http://localhost:3000/tasklists/upHsvW3
+Content-Type: application/json
+
+{
+  "name": "list4",
+  "order": "2",
+  "projectId": "1"
+}
+
+###
+DELETE http://localhost:3000/tasklists/-rv5eo3

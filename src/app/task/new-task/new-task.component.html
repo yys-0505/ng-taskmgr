@@ -1,0 +1,36 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit($event, form)">
+	<h2 mat-dialog-title>{{dialogTitle}}</h2>
+	<div mat-dialog-content>
+		<mat-form-field class="full-width">
+			<input matInput type="text" placeholder="任务内容" formControlName="desc">
+		</mat-form-field>
+		<mat-radio-group aria-label="Select an option" formControlName="priority">
+			<mat-radio-button *ngFor="let priority of priorities" [value]="priority.value">
+				{{priority.label}}
+			</mat-radio-button>
+		</mat-radio-group>
+		<div class="full-width">
+			<app-chips-list [label]="'更改执行者'" [multiple]="false" formControlName="owner"></app-chips-list>
+		</div>
+		<mat-form-field class="full-width">
+			<input matInput [matDatepicker]="dueDatepicker" type="text" placeholder="任务截止日期" formControlName="dueDate">
+			<mat-datepicker-toggle matSuffix [for]="dueDatepicker"></mat-datepicker-toggle>
+			<mat-datepicker #dueDatepicker></mat-datepicker>
+		</mat-form-field>
+		<mat-form-field class="full-width">
+			<input matInput [matDatepicker]="reminderDatepicker" type="text" placeholder="提醒日期" formControlName="reminder">
+			<mat-datepicker-toggle matSuffix [for]="reminderDatepicker"></mat-datepicker-toggle>
+				<mat-datepicker #reminderDatepicker></mat-datepicker>
+		</mat-form-field>
+		<div class="full-width">
+			<app-chips-list [label]="'更改参与者'" [multiple]="true" formControlName="followers"></app-chips-list>
+		</div>
+		<mat-form-field class="full-width">
+			<textarea matInput placeholder="备注" formControlName="remark"></textarea>
+		</mat-form-field>
+	</div>
+	<div mat-dialog-actions>
+		<button type="submit" mat-raised-button color="primary" [disabled]="!form.valid">保存</button>
+		<button type="button" mat-button mat-dialog-close>关闭</button>
+	</div>
+</form>
