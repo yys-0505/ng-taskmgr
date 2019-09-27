@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef, OnDestroy, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, forwardRef, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
@@ -9,7 +9,6 @@ import {
 } from "@angular/forms";
 import { IdentityType, Identity } from 'src/app/domain';
 import { Observable, Subject, combineLatest, Subscription } from "rxjs";
-// import { , from } from "rxjs/operators";
 
 @Component({
   selector: 'app-identity-input',
@@ -38,7 +37,7 @@ export class IdentityInputComponent implements OnInit, OnDestroy, ControlValueAc
     { value: IdentityType.Militory, label: '军官证'},
     { value: IdentityType.Other, label: '其他'}
   ];
-  identity: Identity = { indentityType: null, indentifyNo: null };
+  identity: Identity = { identityType: null, identityNo: null };
   private _idType = new Subject<IdentityType>();
   private _idNo = new Subject<string>();
   private propagateChange = (_: any) => {};

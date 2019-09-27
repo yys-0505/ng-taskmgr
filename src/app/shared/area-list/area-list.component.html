@@ -19,7 +19,7 @@
     <mat-select
       placeholder="请输入区县"
       [(ngModel)]="_address.district"
-      (selectionChange)="onDistrictChange($event)">
+      (selectionChange)="onDistrictChange()">
       <mat-option *ngFor="let d of districts$ | async" [value]="d">{{d}}</mat-option>
     </mat-select>
   </div>

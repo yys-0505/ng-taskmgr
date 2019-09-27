@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
 
+## Preview
+`https://yys-0505.github.io/ng-taskmgr/dist/ng-taskmgr/index.html`
+
 ## Keys
 
 ``` bash
@@ -20,6 +23,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # rxjs
 # @ngrx
 # json-server
+# "build": "ng build --prod --aot --base-href ./"
 ```
 
 ## Development server

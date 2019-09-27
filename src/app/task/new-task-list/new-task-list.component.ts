@@ -27,7 +27,7 @@ export class NewTaskListComponent implements OnInit {
     });
   }
 
-  onSubmit({value, valid}) {
+  onSubmit({value, valid}, ev: Event) {
     if (!valid) {
       return;
     }

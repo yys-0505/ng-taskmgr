@@ -58,20 +58,17 @@ const getColor = (priority: number) => {
         <div [ngSwitch]="view$ | async">
           <mwl-calendar-week-view *ngSwitchCase="'week'"
             [viewDate]="viewDate"
-            [events]="calEvents"
-            (eventClicked)="handleEvent($event.event)">
+            [events]="calEvents">
 
           </mwl-calendar-week-view>
           <mwl-calendar-day-view *ngSwitchCase="'day'"
             [viewDate]="viewDate"
-            [events]="calEvents"
-            (eventClicked)="handleEvent($event.event)">
+            [events]="calEvents">
 
           </mwl-calendar-day-view>
           <mwl-calendar-month-view *ngSwitchDefault
             [viewDate]="viewDate"
-            [events]="calEvents"
-            (eventClicked)="handleEvent($event.event)">
+            [events]="calEvents">
 
           </mwl-calendar-month-view>
         </div>

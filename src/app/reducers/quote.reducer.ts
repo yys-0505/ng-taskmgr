@@ -1,9 +1,9 @@
-import * as actions from '../actions';
+import * as actions from '../actions/quote.action';
 import { Quote } from '../domain'
 
 //new
 import { createReducer, on } from '@ngrx/store';
-import { quoteLoad } from '../actions/quote.action';
+import { Action } from '@ngrx/store';
 
 export interface State {
   quote: Quote
@@ -17,20 +17,7 @@ export const initialState: State = {
   }
 };
 
-// export function reducer(state = initialState, action: {type: string, payload: any} ): State {
-//   switch (action.type) {
-//     case quoteAction.QUOTE_SUCCESS: {
-//       return {...state, quote: action.payload};
-//     }
-//     case quoteAction.QUOTE_FAIL:
-//     default: {
-//       return state;
-//     }
-//   }
-// }
-
-//new
-export const reducer = createReducer(initialState,
+export const quoteReducer = createReducer(initialState,
   on(actions.quoteLoadSuccess, (state, payload) => {
     return {...state, quote: payload}
   }),
@@ -39,5 +26,9 @@ export const reducer = createReducer(initialState,
     actions.quoteLoadFail,
     state => state)
 );
+
+export function reducer(state: State | undefined, action: Action) {
+  return quoteReducer(state, action);
+}
 
 export const getQuote = (state: State) => state.quote;
